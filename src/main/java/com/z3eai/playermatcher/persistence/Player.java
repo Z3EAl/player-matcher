@@ -1,4 +1,4 @@
-package com.z3eai.playermatcher.repository;
+package com.z3eai.playermatcher.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -6,9 +6,9 @@ import jakarta.persistence.Id;
 @Entity
 public class Player {
     @Id
-    Long PlayerID;
-    String PlayerName;
-    Integer PlayerRating;
+    Long playerID;
+    String playerName;
+    Integer playerRating;
     Long Score;
 
 }
