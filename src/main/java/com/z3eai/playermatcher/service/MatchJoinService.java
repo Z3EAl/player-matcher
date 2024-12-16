@@ -5,7 +5,6 @@ import com.z3eai.playermatcher.models.MatchJoinRequest;
 import com.z3eai.playermatcher.persistence.Match;
 import com.z3eai.playermatcher.repository.MatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.validation.ValidationErrors;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

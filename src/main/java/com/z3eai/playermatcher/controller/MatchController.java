@@ -4,7 +4,6 @@ import com.z3eai.playermatcher.error.GlobalExceptionHandler;
 import com.z3eai.playermatcher.models.MatchJoinRequest;
 import com.z3eai.playermatcher.persistence.Match;
 import com.z3eai.playermatcher.service.MatchJoinService;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ public class MatchController {
     private GlobalExceptionHandler globalExceptionHandler;
 
     @PostMapping(path = "/join")
-    public ResponseEntity<?> join(@RequestBody MatchJoinRequest mjr, HttpServletResponse httpServletResponse) {
+    public ResponseEntity<?> join(@RequestBody MatchJoinRequest mjr) {
         try{
             matchJoinService.validateMatchJoin(mjr);
         } catch (IllegalArgumentException e) {
@@ -33,7 +32,7 @@ public class MatchController {
     }
 
     @PatchMapping(path = "/update")
-    public ResponseEntity<Match> update(@RequestBody MatchJoinRequest mjr, HttpServletResponse httpServletResponse) {
+    public ResponseEntity<Match> update(@RequestBody MatchJoinRequest mjr) {
         matchJoinService.validateMatchUpdate(mjr);
         Optional<Match> match = matchJoinService.updateMatch(mjr);
         return match.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
