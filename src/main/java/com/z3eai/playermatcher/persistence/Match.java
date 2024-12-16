@@ -2,9 +2,11 @@ package com.z3eai.playermatcher.persistence;
 
 import com.z3eai.playermatcher.enums.MatchStatus;
 import jakarta.persistence.*;
+import lombok.Data;
 
 
 @Entity
+@Data
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,33 +35,5 @@ public class Match {
                 ", opponentId=" + opponentId +
                 ", matchStatus=" + matchStatus +
                 '}';
-    }
-
-    public Long getMatchID() {
-        return matchID;
-    }
-
-    public Long getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(Long playerId) {
-        this.playerId = playerId;
-    }
-
-    public Long getOpponentId() {
-        return opponentId;
-    }
-
-    public void setOpponentId(Long opponentId) {
-        this.opponentId = opponentId;
-    }
-
-    public MatchStatus getMatchStatus() {
-        return matchStatus;
-    }
-
-    public void setMatchStatus(MatchStatus matchStatus) {
-        this.matchStatus = matchStatus;
     }
 }
